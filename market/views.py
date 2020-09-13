@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Item
 from django.shortcuts import render, get_object_or_404
+from .forms import ItemForm
 
 # Create your views here.
 def image_view(request):
@@ -25,3 +26,16 @@ def post_list(request):
 def item_detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
     return render(request, 'market/item_detail.html', {'item': item})
+
+def item_new(request):
+    if request.method == "POST":
+        form = ItemForm(request.POST)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.author = request.user
+            item.created_date = timezone.now()
+            post.save()
+            return redirect('item_detail', pk=post.pk)
+    else:
+        form = ItemForm()
+    return render(request, 'market/item_edit.html', {'form': form})
