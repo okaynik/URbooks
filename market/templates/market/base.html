@@ -1,0 +1,41 @@
+{% load static %}
+<html>
+    <head>
+        <title>All items</title>
+        <style>
+          body {
+            background-image: url("{% static 'back copy.jpg' %}");
+          }
+          </style>
+
+        <!-- Basic Page Needs
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <meta charset="utf-8">
+        <title>BookBoys | Marketplace</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Mobile Specific Metas
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- FONT
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+        <!-- CSS
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
+
+        <!-- Favicon
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    </head>
+    <body>
+        <div class="page-header">
+            <h1>BookBoyz</h1>
+        </div>
+            {% block content %}
+            {% endblock%}
+    </body>
+</html>
