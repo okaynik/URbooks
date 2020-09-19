@@ -1,17 +1,36 @@
-{% load static %}
 {% extends 'market/base.html' %}
+{% load static %}
 
 {% block content %}
-    <div class="post">
-    	<img src="{{ item.image.url }}"></img>
-        {% if item.created_date %}
-            <div class="date">
-                {{ item.created_date }}
-            </div>
-        {% endif %}
-        <h1>{{ item.title }}</h1>
-        <p>${{ item.price }}</p>
-        <p>{{ item.seller }}</p>
-        <p>{{ item.description|linebreaksbr }}</p>
-    </div>
+<section class="product">
+	<div class="product__photo">
+		<div class="photo-container">
+			<div class="photo-main">
+				<div class="controls">
+					<i class="material-icons">share</i>
+					<i class="material-icons">favorite_border</i>
+				</div>
+				<img src="{{ item.image.url }}" alt="main picture">
+			</div>
+		</div>
+	</div>
+	<div class="product__info">
+		<div class="title">
+			<h1>{{ item.title }}</h1>
+			<span>{{ item.pk }}</span>
+		</div>
+		<div class="price">
+			$ <span>{{ item.price }}</span>
+		</div>
+		<div class="description">
+            <h3>Description</h3>
+            <p>{{ item.description|linebreaksbr }}</p>
+		</div>
+		<button class="buy--btn">ADD TO CART</button>
+	</div>
+</section>
+
+<footer>
+	<p>Design from <a href="https://dribbble.com/shots/5216438-Daily-UI-012">dribbble shot</a> of <a href="https://dribbble.com/rodrigorramos">Rodrigo Ramos</a></p>
+</footer>
 {% endblock %}

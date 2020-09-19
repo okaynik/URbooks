@@ -2,63 +2,21 @@
 {% load static %}
 
 {% block content %}
-<table class="eight columns" style="margin-left: 15%" style="margin-top: 18%">
-        <thead>
-          <tr>
-            <td></td>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Seller's Phone</th>
-            <th>Condition</th>
-          </tr>
-        </thead>
-        <!--This is probably the place where the for-loop connected
-        to Django would go-->
-        <!--
-  <body>
-
-    <ul class="product-list-vertical">
-
-        <li>
-
-            <a href="#" class="product-photo">
-                <img src="assets/images/products/iphone6.jpg" height="160" alt="iPhone 6" />
-            </a>
-
-            <div class="product-details">
-                <a href="#" class="product-compare">compare</a>
-
-                <h2><a href="#">iPhone 6</a></h2>
-
-                <div class="product-rating">
-                    <div>
-                        <span class="product-stars" style="width: 60px" >
-                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                        </span>
-                    </div>
-
-                    <span><a href="#">82 reviews</a></span>
-                </div>
-
-
-                <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna.</p>
-
-                <button>Buy Now!</button>
-                <p class="product-price">${{ item.price }}</p>
-            </div>
-
-        </li>
--->
-        <tbody>
+<section class="card-list">
         {% for item in items %}
-          <tr>
-            <td><a href="{% url 'item_detail' pk=item.pk %}"><img src="{{ item.image.url }}" class="post"></img></a></td>
-            <td><a href="{% url 'item_detail' pk=item.pk %}">{{ item.title }}</a></td>
-            <td>${{ item.price }}</td>
-            <td>{{ item.seller }}</td>
-            <td>{{ item.description }}</td>
-          </tr>
-        </tbody>
-</table>
+        <a href="{% url 'item_detail' pk=item.pk %}">
+        <div class="card">
+          <div class="photo">
+            <img src="{{ item.image.url }}">
+          </div>
+        <div class="description">
+          <h2>{{ item.title }}</h2>
+          <h4>{{ item.subject }}</h4>
+          <h1>${{ item.price }}</h1>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+    </a>
         {% endfor %}
+      </section>
 {% endblock %}

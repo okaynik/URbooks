@@ -2,11 +2,7 @@
 <html>
     <head>
         <title>All items</title>
-        <style>
-          body {
-            background-image: url("{% static 'back copy.jpg' %}");
-          }
-          </style>
+        <style></style>
 
         <!-- Basic Page Needs
         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -25,17 +21,22 @@
 
         <!-- CSS
         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <!-- <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
         <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
-        <link rel="stylesheet" href="{% static 'css/marketlist.css' %}">
+        <link rel="stylesheet" href="{% static 'css/marketlist.css' %}"> -->
+        <!-- <link rel="stylesheet" href="{% static 'css/itemdetail.css' %}"> -->
+        <link rel="stylesheet" href="{% static 'css/postlist.css'%}">
 
         <!-- Favicon
         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     </head>
     <body>
         <div class="page-header">
+          {% if user.is_authenticated %}
           <a href="{% url 'item_new' %}" class="top-menu">New post</a>
-          <h1>BookBoyz</h1>
+          <p>HEADER</p>
+          {% endif %}
+          <h1><a href="/">BookBoyz</a></h1>
         </div>
             {% block content %}
             {% endblock%}
