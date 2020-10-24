@@ -1,22 +1,21 @@
 {% extends 'market/base.html' %}
 {% load static %}
-
 {% block content %}
-<section class="card-list">
-        {% for item in items %}
-        <a href="{% url 'item_detail' pk=item.pk %}">
-        <div class="card">
-          <div class="photo">
-            <img src="{{ item.image.url }}">
+
+    <section class="hero-section">
+
+      <div class="card-grid">
+      {% for item in items %}
+        <a class="card" href="{% url 'item_detail' pk=item.pk %}">
+        <div class="card__background" style="background-image: url({{ item.image.url }});"></div>
+          <div class="card__content">
+          <p class="card__category">{{ item.subject }}</p>
+          <h3 class="card__heading">{{ item.title }}</h3>
+          <h5>{{ item.description }}</h5>
+          <h5>{{ item.price }}</h5>
           </div>
-        <div class="description">
-          <h2>{{ item.title }}</h2>
-          <h4>{{ item.subject }}</h4>
-          <h1>${{ item.price }}</h1>
-          <p>{{ item.description }}</p>
-        </div>
+        </a>
+      {% endfor %}
       </div>
-    </a>
-        {% endfor %}
-      </section>
+    </section>
 {% endblock %}

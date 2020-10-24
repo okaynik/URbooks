@@ -1,7 +1,7 @@
 from django.utils import timezone
 from .models import Item
 from django.shortcuts import render, get_object_or_404
-from .forms import ItemForm, CustomUserCreationForm#, UserRegistrationForm
+from .forms import ItemForm#, CustomUserCreationForm#, UserRegistrationForm
 from django.shortcuts import redirect
 from django.contrib.auth import views as auth_views, get_user_model
 from django.contrib.auth.models import User
